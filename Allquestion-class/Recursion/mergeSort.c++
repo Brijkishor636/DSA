@@ -6,8 +6,7 @@ void printArray(int arr[], int n){
     {
         cout<<arr[i]<<" ";
     }
-    cout<<endl;
-    
+    cout<<endl;   
 }
 
 void merge(int *arr, int s, int e){
@@ -75,7 +74,7 @@ void mergeSort(int *arr, int s, int e){
 
 int main(){
 
-    int arr[] = {18,10,8,4,6,7,9};
+    int arr[] = {18,10,6,8,4,6,5,6,7,9};
     int n = sizeof(arr)/sizeof(arr[0]);
 
     mergeSort(arr, 0, n-1);

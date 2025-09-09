@@ -44,6 +44,22 @@ class linkedList{
             t->next = temp;
         }
 
+        void deletatPosition(int n){
+            node *t = head;
+            if(n == 1){
+                node *temp = head;
+                head = head->next;
+                delete temp;
+            }
+            while(n > 2){
+                t = t->next;
+                n--;
+            }
+            node *temp = t->next;
+            t->next = temp->next;
+            delete temp;
+        }
+
         void circular(){
             node *t = head;
             while(t->next != NULL){
@@ -106,11 +122,13 @@ int main(){
     l1.printNode();
     l1.insertAtMiddle(1, 70);
     l1.printNode();
-    l1.circular();
-    l1.insertAtEndCircular(90);
-    l1.printCircular();
-    l1.inserAtbegincircular(100);
-    l1.printCircular();
+    l1.deletatPosition(1);
+    l1.printNode();
+    // l1.circular();
+    // l1.insertAtEndCircular(90);
+    // l1.printCircular();
+    // l1.inserAtbegincircular(100);
+    // l1.printCircular();
     
     return 0;
 }

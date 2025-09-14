@@ -124,11 +124,11 @@ int main(){
     l1.printNode();
     l1.deletatPosition(1);
     l1.printNode();
-    // l1.circular();
-    // l1.insertAtEndCircular(90);
-    // l1.printCircular();
-    // l1.inserAtbegincircular(100);
-    // l1.printCircular();
+    l1.circular();
+    l1.insertAtEndCircular(90);
+    l1.printCircular();
+    l1.inserAtbegincircular(100);
+    l1.printCircular();
     
     return 0;
 }

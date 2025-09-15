@@ -49,7 +49,23 @@ class doublyLL{
             }
         }
 
-        
+        void removeDuplicates() {
+            if (!head || !head->next) 
+            return;
+
+            node *t = head;
+            while (t && t->next) {
+                if (t->value == t->next->value) {
+                    node *dup = t->next;
+                    t->next = dup->next;
+                    if (dup->next) 
+                        dup->next->prev = t;
+                    delete dup;
+                } else {
+                    t = t->next;
+                }
+            }
+        }
 
         void printNode(){
             node *temp = head;
@@ -65,9 +81,18 @@ int main(){
     doublyLL d;
     d.insert_sortly(5);
     d.insert_sortly(9);
+    d.insert_sortly(9);
+    d.insert_sortly(9);
+    d.insert_sortly(9);
+    d.insert_sortly(9);
+    d.insert_sortly(9);
+    d.insert_sortly(9);
+    d.insert_sortly(2);
+    d.insert_sortly(2);
     d.insert_sortly(2);
     d.insert_sortly(6);
     d.printNode();
-    
+    d.removeDuplicates();
+    d.printNode();
     
 }

@@ -61,16 +61,30 @@ class doublyLL{
                 cout<<"List is empty!!";
                 return ;
             }
-            node *temp = head;
-            while (n > 2)
-            {
-                temp = temp->next;
-                n--;
+            if(n == 1){
+                node *temp = head;
+                while (temp->next != head)
+                {
+                    temp = temp->next;
+                }
+                node *t = head;
+                head = head->next;
+                temp->next = head;
+                head->prev = temp;
+                delete t;
             }
-            node *t = temp->next;
-            temp->next = t->next;
-            t->next->prev = temp;
-            delete temp;
+            else{
+                node *temp = head;
+                while (n > 2 && temp->next != head)
+                {
+                    temp = temp->next;
+                    n--;
+                }
+                node *t = temp->next;
+                temp->next = t->next;
+                t->next->prev = temp;
+                delete t;
+            }
         }
 
         void findLength(){
@@ -112,6 +126,6 @@ int main(){
     d.makeCircular();
     d.printCircular();
     d.findLength();
-    d.deleteAtPosition(3);
+    d.deleteAtPosition(5);
     d.printCircular();
 }

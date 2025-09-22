@@ -36,31 +36,32 @@ class doublyLL{
         }
 
         void sort_biotonic(){
+            if (!head || !head->next) return;
             node *t = head;
-            node *temp = head;
-            node *tail = head;
-            node *k = head;
-            while (t != NULL)
-            {
-                tail = tail->next;
-                if(t->value < t->next->value){
-                    k = k->next;
-                }
+            while(t->next != NULL && t->value < t->next->value){
                 t = t->next;
             }
+            if (!t->next) return;
             
-            while (tail->prev != k)
-            {
-                node *s = tail;
-                tail = tail->prev;
-                node *p = temp;
-                temp = temp->next;
-                s->next = p->next;
-                p->next = s;
-                s->prev = p;
-                temp->prev = s;
+            node *tail = head;
+            while(tail->next != NULL){
+                tail = tail->next;
             }
-            
+            node *s = head;
+            node *k = head;
+            node *p = tail;
+            while(tail->prev != t){
+                tail = tail->prev;
+                if(k->next)
+                    k = k->next;
+                p->next = s->next;
+                if(s->next)
+                    s->next->prev = p;
+                s->next = p;
+                p->prev = s;
+                s = k;
+                p = tail;
+            } 
         }
 
         void printNode(){

@@ -51,10 +51,10 @@ class Node{
     }
 
     Node *Delete(int value){
-        if(this == NULL){
-            return NULL;
-        }
-        else if(this->data < value){
+        // if(this == NULL){
+        //     return NULL;
+        // }
+        if(this->data < value){
             this->right = this->right->Delete(value);
         }
         else if(this->data > value){
@@ -78,7 +78,7 @@ class Node{
             else{
                 int successor = minElement(this->right);
                 this->data = successor;
-                this->right= this->right->Delete(successor); 
+                this->right = this->right->Delete(successor); 
             }
             return this;
         }
@@ -97,12 +97,12 @@ int main(){
     root->insert(19);
     root->insert(3);
     root->inorder();
-    cout<<endl;
-    root->Delete(15);
-    root->inorder();
-    cout<<endl;
-    root->Delete(17);
-    root->inorder();
+    // cout<<endl;
+    // root->Delete(15);
+    // root->inorder();
+    // cout<<endl;
+    // root->Delete(17);
+    // root->inorder();
     cout<<endl;
     root->Delete(10);
     root->inorder();

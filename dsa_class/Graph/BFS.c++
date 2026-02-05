@@ -12,7 +12,7 @@ class Graph{
             adj.resize(V);
         }
         void edges(int u, int v){
-            adj[u].push_back(v);         // directed graph
+            adj[u].push_back(v);         // For directed graph
         }
         
         void print(){
